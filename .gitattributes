@@ -1,0 +1,6 @@
+# Normalise to LF in the repository so the Linux build agent and Windows
+# checkouts agree; Git still checks out CRLF locally where that is the norm.
+* text=auto eol=lf
+
+# Design reference and extracted artwork are binary.
+*.png binary

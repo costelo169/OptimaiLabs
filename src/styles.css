@@ -1,0 +1,70 @@
+@import 'tailwindcss';
+
+@theme {
+  /* Surfaces */
+  --color-ink: #0f0f0f;
+  --color-surface: #1f1f1f;
+  --color-surface-2: #232323;
+  --color-hairline: #1a1a1a;
+  --color-line: #2a2a2a;
+
+  /* Accent */
+  --color-accent: #8cf2c1;
+
+  /* Text */
+  --color-fg: #ffffff;
+  --color-fg-muted: #d2d2d2;
+  --color-fg-dim: #a3b39e;
+
+  /* Type */
+  --font-display: 'Plus Jakarta Sans', ui-sans-serif, system-ui, sans-serif;
+  --font-sans: 'Plus Jakarta Sans', ui-sans-serif, system-ui, sans-serif;
+  /* Berkeley Mono is the designed face; it is a commercial font, so Geist Mono
+     stands in until a licensed copy is self-hosted. */
+  --font-mono: 'Berkeley Mono', 'Geist Mono', ui-monospace, monospace;
+
+  /* Layout */
+  --spacing-container: 1400px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  background: var(--color-ink);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html,
+body,
+#app {
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--color-ink);
+  color: var(--color-fg);
+  font-family: var(--font-sans);
+}
+
+/* The 1400px content column is marked by hairline rules running the page height,
+   exactly as the design shows them. */
+.rail {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: var(--color-hairline);
+  pointer-events: none;
+}
+
+/* The design is a fixed 1920px canvas. Rather than crop it on narrower screens,
+   the whole canvas scales down so every section stays visible and in
+   proportion. The ratio is set on :root by useCanvasScale; at 1920 and wider it
+   is 1, so the layout is untouched. */
+.canvas {
+  zoom: var(--canvas-scale, 1);
+}
